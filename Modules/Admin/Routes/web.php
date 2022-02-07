@@ -1,5 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Modules\Admin\Http\Controllers\AdminController;
+use Modules\Admin\Http\Controllers\AdminPostController;
+use Modules\Admin\Http\Controllers\AdminUserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +16,10 @@
 |
 */
 
-Route::prefix('admin')->group(function() {
-    Route::get('/', 'AdminController@index');
+Route::prefix('admin')->name('admin.')->group(function() {
+
+    Route::get('/panel', [AdminController::class, 'index'])->name('panel');
+
+    Route::resource('/users', AdminUserController::class);
+    Route::resource('/posts', AdminPostController::class);
 });
