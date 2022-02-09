@@ -19,7 +19,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'family',
+        'mobile',
         'email',
+        'level',
         'password',
     ];
 
@@ -41,4 +44,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Check user level is admin
+     *
+     * @return boolean
+     */
+    public function isAdmin()
+    {
+        return $this->level === 'admin' ? true : false;
+    }
 }
