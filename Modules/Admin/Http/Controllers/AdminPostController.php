@@ -5,6 +5,7 @@ namespace Modules\Admin\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Modules\Admin\Http\Requests\StorePostRequest;
 
 class AdminPostController extends Controller
 {
@@ -31,10 +32,10 @@ class AdminPostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Modules\Admin\Http\Requests\StorePostRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         //
     }
