@@ -22,7 +22,6 @@ class User extends Authenticatable
         'family',
         'mobile',
         'email',
-        'level',
         'password',
     ];
 
@@ -34,6 +33,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'two_factor_recovery_codes',
+        'two_factor_secret',
     ];
 
     /**
@@ -46,6 +47,15 @@ class User extends Authenticatable
     ];
 
     /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'profile_photo_url',
+    ];
+
+    /**
      * Check user level is admin
      *
      * @return boolean
@@ -53,5 +63,15 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->level === 'admin' ? true : false;
+    }
+
+    /**
+     * One to many relation with user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }
