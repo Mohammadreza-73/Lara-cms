@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use AdminUtil;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
-    use HasFactory, AdminUtil;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -53,5 +52,15 @@ class Post extends Model
     public function isApproved(): bool
     {
         return (bool) $this->approved;
+    }
+
+    /**
+     * Polymorphic many to many with category
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function categories()
+    {
+        return $this->morphToMany(Category::class, 'catable');
     }
 }
