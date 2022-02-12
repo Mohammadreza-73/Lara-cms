@@ -19,6 +19,11 @@ class Tag extends Model
         'slug',
     ];
 
+    /**
+     * Polymorphic many to many relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
     public function posts()
     {
         return $this->morphedByMany(Post::class, 'tagable');

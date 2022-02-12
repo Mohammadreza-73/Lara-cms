@@ -23,6 +23,11 @@ class Theme extends Model
         'active',
     ];
 
+    /**
+     * Check theme activation status
+     *
+     * @return boolean
+     */
     public function isActive()
     {
         return (bool) $this->active;

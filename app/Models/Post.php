@@ -64,11 +64,21 @@ class Post extends Model
         return $this->morphToMany(Category::class, 'catable');
     }
 
+    /**
+     * Polymorphic many to many
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
     public function tags()
     {
         return $this->morphToMany(Tag::class, 'tagable');
     }
 
+    /**
+     * Polymorphic one to many
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
