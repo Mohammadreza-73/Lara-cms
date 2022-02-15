@@ -32,6 +32,8 @@ class Category extends Model
 
     /**
      * Each Category could has many subcategory
+     * 
+     * Related to self model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

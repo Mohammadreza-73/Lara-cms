@@ -35,6 +35,8 @@ class Comment extends Model
 
     /**
      * Each comment could has reply
+     *
+     * Related to self model
      * 
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
