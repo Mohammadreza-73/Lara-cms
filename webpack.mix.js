@@ -11,14 +11,12 @@ const mix = require('laravel-mix');
  |
  */
 
- mix.js('resources/assets/js/app.js', 'public/js')
- .postCss('resources/assets/css/app.css', 'public/css', [
-     require('postcss-import'),
-     require('tailwindcss'),
-     require('autoprefixer')
- ])
- .sass('resources/assets/css/styles.scss', 'public/css');
+mix.js('resources/js/app.js', 'public/js')
+    .postCss('resources/css/app.css', 'public/css', [
+        require('postcss-import'),
+        require('tailwindcss'),
+    ]);
 
 if (mix.inProduction()) {
- mix.version();
+    mix.version();
 }
