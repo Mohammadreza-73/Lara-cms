@@ -25,6 +25,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'family',
+        'mobile',
         'email',
         'password',
     ];
@@ -58,4 +60,34 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+     * Check user level is admin
+     *
+     * @return boolean
+     */
+    public function isAdmin()
+    {
+        return $this->level === 'admin' ? true : false;
+    }
+
+    /**
+     * One to many relation with user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    /**
+     * One to many relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
