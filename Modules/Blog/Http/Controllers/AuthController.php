@@ -10,6 +10,12 @@ use Illuminate\Contracts\Support\Renderable;
 
 class AuthController extends Controller
 {
+    /**
+     * Register User
+     *
+     * @param  Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function register(Request $request)
     {
         User::create([
@@ -24,6 +30,12 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Login User
+     *
+     * @param  Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function login(Request $request)
     {
         $user = User::where('mobile', $request->get('mobile'))->first();
