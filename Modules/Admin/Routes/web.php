@@ -16,10 +16,20 @@ use Modules\Admin\Http\Controllers\AdminUserController;
 |
 */
 
-Route::prefix('admin')->name('admin.')->middleware('checkAdmin')->group(function() {
+Route::prefix('admin')->middleware('checkAdmin')->group(function() {
 
     Route::get('/panel', [AdminController::class, 'index'])->name('panel');
 
     Route::resource('/users', AdminUserController::class);
+    Route::get('/users-data', [AdminUserController::class, 'data'])->name('users.data');
+    
     Route::resource('/posts', AdminPostController::class);
+    Route::get('/posts-data', [AdminPostController::class, 'data'])->name('posts.data');
+    Route::post('/activate/posts/{post}', [AdminPostController::class, 'activate'])->name('posts.activate');
+
+    Route::resource('/categories', AdminCategoryController::class);
+    Route::get('/categories-data', [AdminCategoryController::class, 'data'])->name('categories.data');
+
+    Route::resource('/tags', AdminTagController::class);
+    Route::get('/tags-data', [AdminTagController::class, 'data'])->name('tags.data');
 });

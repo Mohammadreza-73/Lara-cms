@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Laravel\Sanctum\HasApiTokens;
+use App\Traits\DataTable;
 use Laravel\Passport\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
@@ -18,6 +19,7 @@ class User extends Authenticatable
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use DataTable;
 
     /**
      * The attributes that are mass assignable.

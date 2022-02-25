@@ -2,9 +2,10 @@
 
 namespace Modules\Admin\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Contracts\Support\Renderable;
 
 class AdminUserController extends Controller
 {
@@ -15,6 +16,17 @@ class AdminUserController extends Controller
     public function index()
     {
         return view('admin::users.index');
+    }
+
+    /**
+     * Retrieve User data as Datatable
+     *
+     * @param  Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function data(Request $request)
+    {
+        return response()->json(User::generateDataTable($request));
     }
 
     /**
