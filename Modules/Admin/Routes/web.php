@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Admin\Http\Controllers\AdminController;
+use Modules\Admin\Http\Controllers\AdminTagController;
 use Modules\Admin\Http\Controllers\AdminPostController;
 use Modules\Admin\Http\Controllers\AdminUserController;
+use Modules\Admin\Http\Controllers\AdminCategoryController;
 
 /*
 |--------------------------------------------------------------------------
