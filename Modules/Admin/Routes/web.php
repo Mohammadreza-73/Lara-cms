@@ -18,7 +18,7 @@ use Modules\Admin\Http\Controllers\AdminUserController;
 
 Route::prefix('admin')->middleware('checkAdmin')->group(function() {
 
-    Route::get('/panel', [AdminController::class, 'index'])->name('panel');
+    Route::get('/panel', [AdminController::class, 'index'])->name('admin.panel');
 
     Route::resource('/users', AdminUserController::class);
     Route::get('/users-data', [AdminUserController::class, 'data'])->name('users.data');
